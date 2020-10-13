@@ -8,6 +8,10 @@
 
 :root {
     /* colors */
+    --global-color-light:#CCE7FF;
+    --global-color-dark:#0F3557;
+    --global-backgroundColor:var(--global-color-light);
+    --global-color:var(--global-color-dark);
 
     /* opacity */
 
@@ -25,9 +29,12 @@
 */
 
 html {
+    background-color: var(--global-backgroundColor);
+    color: var(--global-color);
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
+    font-family: 'Work Sans', sans-serif;
+    font-feature-settings: "zero" 1;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -53,8 +60,8 @@ html {
 }
 
 ::selection {
-    background: red;
-    color: white;
+    background: var(--global-color);
+    color: var(--global-backgroundColor);
     text-shadow: none;
 }
 
@@ -120,6 +127,7 @@ table,
 address,
 figure {
     margin: 0 0 24px;
+    
 }
 
 ul,
@@ -248,8 +256,83 @@ input::placeholder {
     Website main logo
 */
 
+.c-content{
+    position: absolute;
+    top: 270px;
+    /*bottom: 0;*/
+    max-width: 28em;
+    margin: 0 auto;
+    padding: 1em;
+}
+/*
+andere manier voor alles aan bottom 
+c-app min heightop 100vh
+en ook op display flex en direction op column en dan op c-horizon margin-top auto
+*/
 .c-logo {
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: normal;
+    display: flex;
+    fill: var(--global-color);
+    align-items: center;
+    
+}
 
+.is-night{
+    --global-backgroundColor:var(--global-color-dark);
+    --global-color:var(--global-color-light);
+}
+.is-day{
+    --global-backgroundColor:var(--global-color-light);
+    --global-color:var(--global-color-dark);
+}
+.c-app{
+    max-width: 28em;
+    margin: 0 auto;
+    padding: 1em;
+    min-height: 100vh;
+    
+}
+.c-app__summary{
+    font-size: 28px;
+    line-height: 40px;
+}
+.c-horizon__line{
+    border-top: 1px solid var(--global-color);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+.c-horizon__time{
+    padding-top: 8px;
+    font-size: 12px;
+    line-height: 14px;
+}
+.c-horizon__sky-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    padding-top: 22px;
+    padding-right: 40px;
+}
+
+.c-horizon__sky {
+    position: relative;
+    height: 100%;
+}
+.c-horizon__sun {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    transform:translateY(22px);
+}
+.c-horizon__sun::before{
+    content: attr(data-time);
+    font-size: 12px;
 }
 
 /*
@@ -259,11 +342,14 @@ input::placeholder {
 */
 
 .c-sun {
-
+    height:22px;
+    width: 22px;
+    fill: var(--global-color);
+    
 }
 
 .c-logo .c-sun {
-
+    margin-right:   8px;
 }
 
 /*
@@ -286,6 +372,9 @@ input::placeholder {
     Utilities: Mute
     Mute with opacity
 */
+.u-muted{
+    opacity: 60%;
+}
 
 /*------------------------------------*\
 #STATES
