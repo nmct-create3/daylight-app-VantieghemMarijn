@@ -258,8 +258,8 @@ input::placeholder {
 
 .c-content{
     position: absolute;
-    top: 270px;
-    /*bottom: 0;*/
+    /* top: 270px; */
+    bottom: 0;
     max-width: 28em;
     margin: 0 auto;
     padding: 1em;
